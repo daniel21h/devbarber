@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Text} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
@@ -15,8 +15,10 @@ import {
   SignMessageButtonText,
   SignMessageButtonTextBold,
 } from './styles';
+import {UserContext} from '../../contexts/UserContext';
 
 export default () => {
+  const {dispatch: userDispatch} = useContext(UserContext);
   const navigation = useNavigation();
 
   const [emailField, setEmailField] = useState('');
